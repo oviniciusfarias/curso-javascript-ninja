@@ -12,23 +12,28 @@ function soma (a, b) {
 var resultado = soma(2, 3) + 5;
 
 // Qual o valor atualizado dessa variável?
-?
+10
 
 // Declare uma nova variável, sem valor.
-?
+var newVariable;
 
 /*
 Crie uma função que adicione um valor à variável criada acima, e retorne a string:
     O valor da variável agora é VALOR.
 Onde VALOR é o novo valor da variável.
 */
-?
+function showNewValue (valor) {
+  newVariable = valor;
+  return `O valor da variável agora é ${ newVariable }`;
+}
 
 // Invoque a função criada acima.
-?
+showNewValue(5);
 
 // Qual o retorno da função? (Use comentários de bloco).
-?
+/*
+  O valor da variável agora é 5
+*/
 
 /*
 Crie uma função com as seguintes características:
@@ -37,19 +42,25 @@ Crie uma função com as seguintes características:
     Preencha todos os valores corretamente!
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
-?
+function multiplyValues (a, b, c) {
+  if (a === undefined || b === undefined || c === undefined) {
+    return 'Preencha todos os valores corretamente!';
+  } 
+  
+  return (a * b * c) + 2;
+}
 
 // Invoque a função criada acima, passando só dois números como argumento.
-?
+multiplyValues(1, 2);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-?
+// Preencha todos os valores corretamente!
 
 // Agora invoque novamente a função criada acima, mas passando todos os três argumentos necessários.
-?
+multiplyValues(1, 2, 3);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-?
+8
 
 /*
 Crie uma função com as seguintes características:
@@ -60,8 +71,29 @@ Crie uma função com as seguintes características:
 5. Se nenhum argumento for passado, retorne o valor booleano `false`.
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
-?
+function testValues (a, b, c) {
+  if (a !== undefined && b === undefined && c === undefined) {
+    return a;
+  }
+
+  if (a !== undefined && b !== undefined && c === undefined) {
+    return a + b;
+  }
+
+  if (a !== undefined && b !== undefined && c !== undefined) {
+    return (a + b) / c;
+  }
+  
+  if (a === undefined && b === undefined && c === undefined) {
+    return false;
+  }
+
+  return null;
+}
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
-?
-```
+
+testValues(); // false
+testValues(1); // 1
+testValues(1, 2); // 3
+testValues(1, 2, 3); // 1
